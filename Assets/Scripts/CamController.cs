@@ -13,31 +13,34 @@ public class CamController : MonoBehaviour
     [SerializeField] private float moveSpeed;
 
     [SerializeField] private Transform corner1, corner2;
+
+    [SerializeField] private float rotationAmount;
+    [SerializeField] private Quaternion newRotation;
     private Camera cam;
     public static CamController instance;
     void Start()
     {
         instance = this;
         cam = Camera.main;  // Call cam Utilize Less Load than Camera.main
+
+        newRotation = transform.rotation;
+        rotationAmount = 1;
     }
 
     void Update()
     {
         Zoom();
         MoveByKey();
+        Rotate();
     }
 
     private void Zoom()
     {
         zoomModifier = Input.GetAxis("Mouse ScrollWheel");
         if (Input.GetKey(KeyCode.Z))    //Hold Z
-        {
             zoomModifier = 0.01f;
-        }
         if (Input.GetKey(KeyCode.X))
-        {
             zoomModifier = -0.01f;
-        }
 
         float distance = Vector3.Distance(transform.position, cam.transform.position);  //CamBase, cam pos.
         if (distance < minZoomDistance && zoomModifier > 0f)
@@ -65,5 +68,15 @@ public class CamController : MonoBehaviour
             transform.position.y,
             Mathf.Clamp(transform.position.z, lowerLeft.z, topRight.z));
         return pos;
+    }
+
+    private void Rotate()
+    {
+        if (Input.GetKey(KeyCode.Q))
+            newRotation *= Quaternion.Euler(Vector3.up * rotationAmount);
+        if (Input.GetKey(KeyCode.E))
+            newRotation *= Quaternion.Euler(Vector3.up * -rotationAmount);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * moveSpeed); ;
     }
 }
