@@ -3,27 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+public enum UnitState
+{
+    Idle,
+    Walk,
+    Plow,
+    Sow,
+    Water,
+    Harvest
+}
+
+public enum Gender
+{
+    male,
+    female
+}
+
 public class Worker : MonoBehaviour
 {
-    public enum UnitState
-    {
-        Idle,
-        Walk,
-        Plow,
-        Sow,
-        Water,
-        Harvest
-    }
-
-    public enum Gender
-    {
-        male,
-        female
-    }
-
     private int id;
     public int ID { get { return id; } set { id = value; } }
-
     [SerializeField] private int charSkinID;
     public int CharSkinID { get { return charSkinID; } set { charSkinID = value; } }
     public GameObject[] charSkin;
@@ -50,10 +49,12 @@ public class Worker : MonoBehaviour
     private NavMeshAgent navAgent;
     public NavMeshAgent NavAgent { get { return navAgent; } set { navAgent = value; } }
 
-    void Start()
+    void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();    
     }
+
+
 
     void Update()
     {

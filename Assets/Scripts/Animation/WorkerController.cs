@@ -9,12 +9,13 @@ public class WorkerController : MonoBehaviour
 
     void Start()
     {
-        anim
+        anim = GetComponent<Animator>();
+        worker = GetComponent<Worker>();
     }
 
     void Update()
     {
-
+        CheckState();
     }
 
     private void CheckState()
