@@ -52,7 +52,7 @@ public class Worker : MonoBehaviour
 
     void Start()
     {
-        navAgent = GetComponent<NavMeshAgent>();
+        navAgent = GetComponent<NavMeshAgent>();    
     }
 
     void Update()
