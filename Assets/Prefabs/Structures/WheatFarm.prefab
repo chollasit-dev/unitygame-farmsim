@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2320444146860440870}
   - component: {fileID: 3365412692332796365}
+  - component: {fileID: 485672189906014540}
   - component: {fileID: 7485246427856793164}
   - component: {fileID: 6119212143486821840}
   m_Layer: 0
   m_Name: WheatFarm
-  m_TagString: Untagged
+  m_TagString: Farm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,6 +63,20 @@ MonoBehaviour:
   produceTimer: 0
   FarmUI: {fileID: 0}
   currentWorkers: []
+--- !u!114 &485672189906014540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140828658933978852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7801c1e8c0c09489f7cddc908c839c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBuild: 0
+  plane: {fileID: 6524691060166461185}
 --- !u!65 &7485246427856793164
 BoxCollider:
   m_ObjectHideFlags: 0
