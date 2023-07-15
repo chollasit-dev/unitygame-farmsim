@@ -26,12 +26,12 @@ public class MainUI : MonoBehaviour
 
     public void UpdateResourceUI()
     {
-        /*moneyText.text = Office.instance.Money.ToString();
+        moneyText.text = Office.instance.Money.ToString();
         staffText.text = Office.instance.Workers.Count.ToString();
         wheatText.text = Office.instance.Wheat.ToString();
         melonText.text = Office.instance.Melon.ToString();
         cornText.text = Office.instance.Corn.ToString();
         milkText.text = Office.instance.Milk.ToString();
-        appleText.text = Office.instance.Apple.ToString();*/
+        appleText.text = Office.instance.Apple.ToString();
     }
 }
