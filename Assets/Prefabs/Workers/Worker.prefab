@@ -1210,7 +1210,7 @@ Animator:
   m_GameObject: {fileID: 1674885529865632}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0125309e38bea8a48bc578cf8f220634, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cb6c4ea741cabc345b32b3589260d43a, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1252,6 +1252,7 @@ MonoBehaviour:
   staffGender: 0
   hired: 0
   state: 0
+  targetStructure: {fileID: 0}
 --- !u!114 &8248332562380395050
 MonoBehaviour:
   m_ObjectHideFlags: 0
