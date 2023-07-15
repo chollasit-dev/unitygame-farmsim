@@ -17,7 +17,8 @@ public class MainUI : MonoBehaviour
 
     public static MainUI instance;
 
-    // Start is called before the first frame update
+    public GameObject laborMarketPanel;
+
     void Start()
     {
         instance = this;
@@ -33,5 +34,12 @@ public class MainUI : MonoBehaviour
         cornText.text = Office.instance.Corn.ToString();
         milkText.text = Office.instance.Milk.ToString();
         appleText.text = Office.instance.Apple.ToString();
+    }
+
+    public void ToggleLaborPanel()
+    {
+        if (!laborMarketPanel.activeInHierarchy)
+            laborMarketPanel.SetActive(true);
+        else laborMarketPanel.SetActive(false);
     }
 }
