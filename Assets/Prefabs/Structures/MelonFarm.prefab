@@ -57,7 +57,7 @@ MonoBehaviour:
   costToBuild: 3600
   id: 2
   stage: 0
-  maxStaffNum: 3
+  maxStaffNum: 2
   dayRequired: 7
   dayPassed: 0
   produceTimer: 0
