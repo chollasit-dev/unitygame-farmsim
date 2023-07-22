@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class StructureManager : MonoBehaviour
 {
@@ -109,6 +110,7 @@ public class StructureManager : MonoBehaviour
         {
             if (isConstructing)
                 PlaceBuilding(); //Real Construction
+            else CheckOpenPanel();  //Normal Mode
         }
     }
 
@@ -121,4 +123,36 @@ public class StructureManager : MonoBehaviour
         if (ghostBuilding != null)
             Destroy(ghostBuilding);
     }
+
+    private void OpenFarmPanel()
+    {
+        string name = CurStructure.GetComponent<Farm>().StructureName;
+
+        MainUI.instance.FarmNameText.text = name;
+        MainUI.instance.ToggleFarmPanel();
+    }
+
+    private void CheckOpenPanel()
+    {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        //if we left click something
+        if (Physics.Raycast(ray, out hit, 1000))
+        {
+            //Mouse over UI
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+
+            CurStructure = hit.collider.gameObject;
+
+            switch (hit.collider.tag)
+            {
+                case "Farm": // if we click Object with Farm tag 
+                    OpenFarmPanel();
+                    break;
+            }
+        }
+    }
+
 }
