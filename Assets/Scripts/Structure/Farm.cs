@@ -24,10 +24,10 @@ public class Farm : Structure
     [SerializeField] private int dayPassed; //Day passed since last harvest
 
     [SerializeField] private float produceTimer = 0f;
-    private int secondsPerDay = 10;
+    [SerializeField] private int secondsPerDay = 2;
 
-    private float WorkTimer = 0f;
-    private float WorkTimeWait = 1f;
+    [SerializeField] private float WorkTimer = 0f;   //Timer for Workers
+    [SerializeField] private float WorkTimeWait = 1f;
 
     [SerializeField] private GameObject FarmUI;
 
@@ -94,6 +94,7 @@ public class Farm : Structure
 
     private void Working()
     {
+        Debug.Log("+3");
         hp += 3;
     }
 

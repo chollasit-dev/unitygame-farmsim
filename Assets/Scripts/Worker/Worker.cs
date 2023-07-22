@@ -162,6 +162,7 @@ public class Worker : MonoBehaviour
                     farm.CheckTimeForWork();
                     break;
                 case FarmStage.harvesting:
+                    Debug.Log("Harvesting Switch");
                     state = UnitState.Harvest;
                     farm.CheckTimeForWork();
                     break;
