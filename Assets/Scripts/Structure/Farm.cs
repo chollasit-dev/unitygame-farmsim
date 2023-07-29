@@ -66,13 +66,13 @@ public class Farm : Structure
         {
             produceTimer += Time.deltaTime;
             dayPassed = Mathf.CeilToInt(produceTimer / secondsPerDay);
-        }
 
-        if ((functional == true) && (dayPassed >= dayRequired))
-        {
-            produceTimer = 0;
-            stage = FarmStage.harvesting;
-            hp = 1;
+            if ((functional == true) && (dayPassed >= dayRequired))
+            {
+                produceTimer = 0;
+                stage = FarmStage.harvesting;
+                hp = 1;
+            }
         }
     }
     public void CheckHarvesting()
