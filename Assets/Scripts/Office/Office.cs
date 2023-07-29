@@ -132,7 +132,7 @@ public class Office : MonoBehaviour
 
     public bool ToFireStaff(GameObject staffObj)
     {
-        staffObj.transform.parent = LaborMarket.instance.WorkerParent.transform;
+        staffObj.transform.parent = LaborMarket.instance.WorkerParent.transform; 
         //move Staff obj back to Labor Market
 
         Worker w = staffObj.GetComponent<Worker>();
@@ -148,7 +148,7 @@ public class Office : MonoBehaviour
 
         w.TargetStructure = null; //Quit working
         w.SetToWalk(spawnPosition.transform.position);
-
+        w.DisableAllTools();
         FireStaff(w);
         MainUI.instance.UpdateResourceUI();
 

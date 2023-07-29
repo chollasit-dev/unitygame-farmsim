@@ -60,8 +60,11 @@ public class Worker : MonoBehaviour
 
     [SerializeField] private GameObject[] tools;
 
+    public static Worker instance;
+
     void Awake()
     {
+        instance = this;
         navAgent = GetComponent<NavMeshAgent>();
     }
 
@@ -178,7 +181,7 @@ public class Worker : MonoBehaviour
         }
     }
 
-    private void DisableAllTools()
+    public void DisableAllTools()
     {
         for (int i = 0; i < tools.Length; i++)
             tools[i].SetActive(false);
