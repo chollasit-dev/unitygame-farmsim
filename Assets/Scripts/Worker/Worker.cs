@@ -172,6 +172,7 @@ public class Worker : MonoBehaviour
                 case FarmStage.harvesting:
                     Debug.Log("Harvesting Switch");
                     state = UnitState.Harvest;
+                    DisableAllTools();
                     farm.CheckTimeForWork();
                     break;
                 default:
