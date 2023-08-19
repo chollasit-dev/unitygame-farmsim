@@ -20,16 +20,16 @@ public abstract class Structure : MonoBehaviour
 
     [SerializeField] protected bool functional;
 
-    [SerializeField] private string structureName;
+    [SerializeField] protected string structureName;
     public string StructureName { get { return structureName; } }
 
     [SerializeField] protected int hp;
     public int HP { get { return hp; } set { hp = value; } }
 
-    [SerializeField] private int costToBuild;
+    [SerializeField] protected int costToBuild;
     public int CostToBuild { get { return costToBuild; } }
 
-    [SerializeField] private int id;
+    [SerializeField] protected int id;
     public int ID { get { return id; } set { id = value; } }
     void Start()
     {
