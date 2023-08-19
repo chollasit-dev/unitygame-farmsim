@@ -38,6 +38,11 @@ public class Office : MonoBehaviour
 
     public static Office instance;
 
+    [Header("Building")]
+    [SerializeField] private int unitLimit = 3; //Initial unit limit
+    [SerializeField] private int housingUnitNum = 6; //number of units per each housing
+
+
     private void Awake()
     {
         instance = this;
@@ -46,17 +51,22 @@ public class Office : MonoBehaviour
     public void AddBuilding(Structure s)
     {
         structures.Add(s);
+        CheckHousing();
     }
 
     public void RemoveBuilding(Structure s)
     {
         structures.Remove(s);
         Destroy(s.gameObject);
+        CheckHousing();
     }
 
     public bool ToHireStaff(GameObject workerObj)
     {
         if (money <= 0)
+            return false;
+
+        if (workers.Count >= unitLimit)
             return false;
 
         workerObj.transform.parent = staffParent.transform;     //Transfer Parent
@@ -153,6 +163,23 @@ public class Office : MonoBehaviour
         MainUI.instance.UpdateResourceUI();
 
         return true;
+    }
+
+    public void CheckHousing()
+    {
+        unitLimit = 3; //starting unit Limit
+        //Debug.Log($"CheckHouse-{unitLimit}-{workers.counts}");
+        
+        foreach (Structure s in structures)
+        {
+            if (s.IsHousing && s.IsHousing)
+                unitLimit += housingUnitNum;
+        }
+
+        if (unitLimit >= 100)
+            unitLimit = 100;
+        else if (unitLimit < 0)
+            unitLimit = 0;
     }
 
 }
