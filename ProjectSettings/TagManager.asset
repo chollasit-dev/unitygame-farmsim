@@ -8,6 +8,7 @@ TagManager:
   - Building
   - Farm
   - Road
+  - Enemy
   layers:
   - Default
   - TransparentFX

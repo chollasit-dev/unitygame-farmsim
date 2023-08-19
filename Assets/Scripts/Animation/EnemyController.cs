@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkerController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     private Animator anim;
-    private Worker worker;
+    private Enemy enemy;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        worker = GetComponent<Worker>();
+        enemy = GetComponent<Enemy>();
     }
 
     void Update()
@@ -21,25 +21,14 @@ public class WorkerController : MonoBehaviour
     private void CheckState()
     {
         DisableAll();
-        switch (worker.State)
+        switch (enemy.State)
         {
             case UnitState.Idle:
                 anim.SetBool("isIdle", true);
                 break;
             case UnitState.Walk:
+            case UnitState.MoveToAttackBuilding:
                 anim.SetBool("isWalk", true);
-                break;
-            case UnitState.Plow:
-                anim.SetBool("isPlow", true);
-                break;
-            case UnitState.Sow:
-                anim.SetBool("isSow", true);
-                break;
-            case UnitState.Water:
-                anim.SetBool("isWater", true);
-                break;
-            case UnitState.Harvest:
-                anim.SetBool("isHarvest", true);
                 break;
             case UnitState.AttackBuilding:
                 anim.SetBool("isAttack", true);

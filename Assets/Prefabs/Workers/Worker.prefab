@@ -1235,6 +1235,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085c55438ab5725468b71c728027c71c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 100
+  state: 0
+  targetStructure: {fileID: 0}
+  detectRange: 50
+  attackRange: 2
+  attackPower: 5
+  CheckStateTimer: 0
+  CheckStateTimeWait: 0.5
+  tools:
+  - {fileID: 295925437033968542}
+  - {fileID: 7520866951743505096}
+  - {fileID: 4652545311952030912}
   charSkinID: 0
   charSkin:
   - {fileID: 1719133026623802}
@@ -1253,12 +1265,6 @@ MonoBehaviour:
   dailyWage: 0
   staffGender: 0
   hired: 0
-  state: 0
-  targetStructure: {fileID: 0}
-  tools:
-  - {fileID: 295925437033968542}
-  - {fileID: 7520866951743505096}
-  - {fileID: 4652545311952030912}
 --- !u!114 &8248332562380395050
 MonoBehaviour:
   m_ObjectHideFlags: 0
