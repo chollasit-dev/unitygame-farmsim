@@ -6,6 +6,7 @@ public class TestScene : MonoBehaviour
 {
     public Worker worker;
 
+    //Test Anim
     public void WorkerIdle()
     {
         worker.State = UnitState.Idle;
