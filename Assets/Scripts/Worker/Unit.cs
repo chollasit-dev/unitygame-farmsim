@@ -219,7 +219,7 @@ public abstract class Unit : MonoBehaviour
             LookAt(targetUnit.transform.position);
 
             Unit u = targetUnit.GetComponent<Unit>();
-            u.TakeDamage(attackPower);
+            u.TakeDamage(this);
         }
     }
 
