@@ -97,6 +97,12 @@ public abstract class Unit : MonoBehaviour
             case UnitState.AttackBuilding:
                 AttackBuilding();
                 break;
+            case UnitState.MoveToAttackUnit:
+                MoveToAttackUnit();
+                break;
+            case UnitState.AttackUnit:
+                AttackBuilding();
+                break;
         }
     }
 
