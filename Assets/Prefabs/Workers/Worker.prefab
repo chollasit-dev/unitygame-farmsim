@@ -1248,6 +1248,7 @@ MonoBehaviour:
   - {fileID: 7520866951743505096}
   - {fileID: 4652545311952030912}
   weapon: {fileID: 0}
+  targetUnit: {fileID: 0}
   charSkinID: 0
   charSkin:
   - {fileID: 1719133026623802}

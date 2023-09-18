@@ -81,7 +81,11 @@ MonoBehaviour:
   CheckStateTimeWait: 0.5
   tools: []
   weapon: {fileID: 4722893109295324393}
+  targetUnit: {fileID: 0}
   buildingLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  unitLayerMask:
     serializedVersion: 2
     m_Bits: 0
   checkForEnemyRate: 1
