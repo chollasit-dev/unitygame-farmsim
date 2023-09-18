@@ -28,51 +28,11 @@ public class Enemy : Unit
         if ((s != null) && (s.HP > 0))
             state = UnitState.AttackBuilding;
     }
-    // checks for nearest enemy building with a sphere cast
-    protected Building CheckForNearestEnemyBuilding()
-    {
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position,
-                                                    detectRange,
-                                                    Vector3.up,
-                                                    buildingLayerMask);
-
-        GameObject closest = null;
-        float closestDist = 0f;
-
-        for (int x = 0; x < hits.Length; x++)
-        {
-            //Debug.Log("Test - " + hits[x].collider.gameObject.ToString());
-            Building target = hits[x].collider.GetComponent<Building>();
-            float dist = Vector3.Distance(transform.position, hits[x].transform.position);
-
-            // skip if this is not a building
-            if (target == null)
-                continue;
-
-            // skip if it is any destroyed building
-            if (target.HP <= 0)
-                continue;
-            // if it is not the closest enemy or the distance is less than the closest distance it currently has
-            else if (!closest || (dist < closestDist))
-            {
-                closest = hits[x].collider.gameObject;
-                closestDist = dist;
-            }
-        }
-
-        if (closest != null)
-        {
-            //Debug.Log(closest.gameObject.ToString() + ", " + closestDist.ToString());
-            return closest.GetComponent<Building>();
-        }
-        else
-            return null;
-    }
 
     private void CheckForAttack()
     {
-        Building enemyBuilding = CheckForNearestEnemyBuilding();
-        Unit enemyUnit = CheckForNearestEnemyUnit();
+        Building enemyBuilding = FindingTarget.CheckForNearestEnemyBuilding(transform.position, detectRange, buildingLayerMask, "Building");
+        Unit enemyUnit = FindingTarget.CheckForNearestEnemyUnit(transform.position, detectRange, unitLayerMask, "Unit");
 
         if (enemyBuilding != null)
         {
@@ -93,51 +53,9 @@ public class Enemy : Unit
             //No unit to attack
             else
             {
-                targetUnit= null;
+                targetUnit = null;
                 state = UnitState.Idle;
             }
         }
-    }
-
-    // checks for nearest enemy unit with a sphere cast
-    protected Unit CheckForNearestEnemyUnit()
-    {
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position,
-                                                    detectRange,
-                                                    Vector3.up,
-                                                    unitLayerMask);
-
-        GameObject closest = null;
-        float closestDist = 0f;
-
-        for (int x = 0; x < hits.Length; x++)
-        {
-            // skip if this is not a player's unit
-            if (hits[x].collider.tag != "Unit")
-                continue;
-
-            Unit target = hits[x].collider.GetComponent<Unit>();
-            float dist = Vector3.Distance(transform.position, hits[x].transform.position);
-
-            // skip if this is not a unit
-            if (target == null)
-                continue;
-
-            // skip if it is any dead unit
-            if (target.HP <= 0)
-                continue;
-
-            // if the closest is null or the distance is less than the closest distance it currently has
-            else if ((closest == null) || (dist < closestDist))
-            {
-                closest = hits[x].collider.gameObject;
-                closestDist = dist;
-            }
-        }
-
-        if (closest != null)
-            return closest.GetComponent<Unit>();
-        else
-            return null;
     }
 }
