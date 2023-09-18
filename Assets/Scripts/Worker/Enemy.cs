@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Enemy : Unit
 {
     [SerializeField] private LayerMask buildingLayerMask;
+    [SerializeField] private LayerMask unitLayerMask;
 
     [SerializeField] float checkForEnemyRate = 1f;
 
@@ -13,6 +14,8 @@ public class Enemy : Unit
     void Start()
     {
         buildingLayerMask = LayerMask.GetMask("Building");
+        unitLayerMask = LayerMask.GetMask("Unit");
+
         InvokeRepeating("CheckForAttack", 0f, checkForEnemyRate);
     }
 
