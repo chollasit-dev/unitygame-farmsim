@@ -1174,9 +1174,9 @@ GameObject:
   - component: {fileID: 8248332562380395050}
   - component: {fileID: 116244046656800925}
   - component: {fileID: -275722597041774623}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Worker
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1247,6 +1247,7 @@ MonoBehaviour:
   - {fileID: 295925437033968542}
   - {fileID: 7520866951743505096}
   - {fileID: 4652545311952030912}
+  weapon: {fileID: 0}
   charSkinID: 0
   charSkin:
   - {fileID: 1719133026623802}
