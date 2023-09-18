@@ -177,7 +177,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8997394820403573054}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 15, y: 8, z: 15}
@@ -268,6 +268,14 @@ PrefabInstance:
     - target: {fileID: 4672332234487642, guid: 18bae9b5d783bf24fb2999a81376c750, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64040719539305256, guid: 18bae9b5d783bf24fb2999a81376c750, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64040719539305256, guid: 18bae9b5d783bf24fb2999a81376c750, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18bae9b5d783bf24fb2999a81376c750, type: 3}
