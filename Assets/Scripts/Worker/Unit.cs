@@ -221,5 +221,16 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
+    public void CheckSelfDefence(Unit u)
+    {
+        if (u.gameObject != null)
+        {
+            if (u.gameObject == targetUnit) //it's already a target
+                return;
+
+            targetUnit = u.gameObject;
+            state = UnitState.MoveToAttackUnit;
+        }
+    }
 
 }
