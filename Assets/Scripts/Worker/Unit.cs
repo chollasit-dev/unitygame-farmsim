@@ -178,9 +178,11 @@ public abstract class Unit : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, angle, 0);
     }
 
-    public void TakeDamage(int n)
+    public void TakeDamage(Unit attacker)
     {
-        hp -= n;
+        CheckSelfDefence(attacker);
+
+        hp -= attacker.AttackPower;
         if (hp <= 0)
             Destroy(gameObject);
     }
