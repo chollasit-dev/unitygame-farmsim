@@ -101,7 +101,7 @@ public abstract class Unit : MonoBehaviour
                 MoveToAttackUnit();
                 break;
             case UnitState.AttackUnit:
-                AttackBuilding();
+                AttackUnit();
                 break;
         }
     }
@@ -185,6 +185,7 @@ public abstract class Unit : MonoBehaviour
         hp -= attacker.AttackPower;
         if (hp <= 0)
             Destroy(gameObject);
+
     }
 
     protected void MoveToAttackUnit()
@@ -229,7 +230,6 @@ public abstract class Unit : MonoBehaviour
         {
             if (u.gameObject == targetUnit) //it's already a target
                 return;
-
             targetUnit = u.gameObject;
             state = UnitState.MoveToAttackUnit;
         }
