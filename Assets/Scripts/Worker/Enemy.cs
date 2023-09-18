@@ -72,16 +72,30 @@ public class Enemy : Unit
     private void CheckForAttack()
     {
         Building enemyBuilding = CheckForNearestEnemyBuilding();
+        Unit enemyUnit = CheckForNearestEnemyUnit();
 
         if (enemyBuilding != null)
         {
             targetStructure = enemyBuilding.gameObject;
             state = UnitState.MoveToAttackBuilding;
         }
+        //No building to attack
         else
         {
             targetStructure = null;
             state = UnitState.Idle;
+
+            if (enemyUnit != null)
+            {
+                targetUnit = enemyUnit.gameObject;
+                state = UnitState.MoveToAttackUnit;
+            }
+            //No unit to attack
+            else
+            {
+                targetUnit= null;
+                state = UnitState.Idle;
+            }
         }
     }
 
