@@ -67,7 +67,6 @@ public abstract class Unit : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckStaffState();
@@ -188,6 +187,15 @@ public abstract class Unit : MonoBehaviour
 
     }
 
+    public void TakeDamage(Turret attacker)
+    {
+        CheckSelfDefence(attacker);
+
+        hp -= attacker.ShootDamage;
+        if (hp <= 0)
+            Destroy(gameObject);
+    }
+
     protected void MoveToAttackUnit()
     {
         if (targetUnit == null)
@@ -230,8 +238,21 @@ public abstract class Unit : MonoBehaviour
         {
             if (u.gameObject == targetUnit) //it's already a target
                 return;
+
             targetUnit = u.gameObject;
             state = UnitState.MoveToAttackUnit;
+        }
+    }
+
+    public void CheckSelfDefence(Turret t)
+    {
+        if (t.gameObject != null)
+        {
+            if (t.gameObject == targetStructure) //it's already a target
+                return;
+
+            targetStructure = t.gameObject;
+            state = UnitState.MoveToAttackBuilding;
         }
     }
 
