@@ -18,7 +18,7 @@ public class TestScript : MonoBehaviour
         Debug.Log("Start");
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         timer += Time.deltaTime;

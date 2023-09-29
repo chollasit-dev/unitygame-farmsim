@@ -10,7 +10,7 @@ public class Building : Structure
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
