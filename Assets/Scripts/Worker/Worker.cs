@@ -276,4 +276,25 @@ public class Worker : Unit
         }
     }
     #endregion
+
+    private void CheckWorkerState()
+    {
+        switch (state)
+        {
+            case UnitState.MoveToMining:
+                MoveToMiningUpdate();
+                break;
+            case UnitState.Mining:
+                MiningUpdate();
+                break;
+            case UnitState.MoveToDeliver:
+                MoveToDeliverUpdate();
+                break;
+            case UnitState.Deliver:
+                DeliverUpdate();
+                break;
+        }
+    }
+
+
 }
