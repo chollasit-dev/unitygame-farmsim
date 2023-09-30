@@ -136,6 +136,131 @@ public class Worker : Unit
     }
 
     #region Resource
+    public void StartMining(GameObject mine)
+    {
+        if (mine == null)
+        {
+            targetMine = null;
+            state = UnitState.MoveToDeliver;
+            navAgent.SetDestination(targetStructure.transform.position);
+        }
+        else
+        {
+            state = UnitState.MoveToMining;
+            navAgent.SetDestination(mine.transform.position);
+        }
+        navAgent.isStopped = false;
+    }
 
+    void MoveToMiningUpdate()
+    {
+        if (targetMine == null)
+        {
+            GameObject newMine = FindingTarget.CheckForNearestMine(targetStructure.transform.position,
+                                                                        100f,
+                                                                        "Mine");
+            StartMining(newMine);
+        }
+
+        DisableAllTools();
+        //Equip PickAxe
+
+        if (Vector3.Distance(transform.position, navAgent.destination) <= 1f)
+        {
+            LookAt(navAgent.destination);
+            state = UnitState.Mining;
+        }
+    }
+
+    void MiningUpdate()
+    {
+        Mines mine;
+        if (targetMine != null)
+            mine = targetMine.GetComponent<Mines>();
+        else
+        {
+            GameObject newMine = FindingTarget.CheckForNearestMine(targetStructure.transform.position,
+                                                                        100f,
+                                                                        "Mine");
+            targetMine = newMine;
+            StartMining(newMine);
+            return;
+        }
+
+        DisableAllTools();
+        //Equip PickAxe
+
+        if (Time.time - timeLastDig > digRate)
+        {
+            timeLastDig = Time.time;
+
+            if (curAmount < maxAmount)
+            {
+                mine.Deplete(3);
+                curAmount += 3;
+
+                if (curAmount > maxAmount)
+                    curAmount = maxAmount;
+            }
+            else //Move to deliver at HQ
+            {
+                state = UnitState.MoveToDeliver;
+                navAgent.SetDestination(targetStructure.transform.position);
+                navAgent.isStopped = false;
+            }
+        }
+    }
+
+    private void MoveToDeliverUpdate()
+    {
+        if (targetStructure == null)
+        {
+            state = UnitState.Idle;
+            return;
+        }
+
+        DisableAllTools();
+        //Equip Load
+
+        if (Vector3.Distance(transform.position, targetStructure.transform.position) <= 5f)
+        {
+            state = UnitState.Deliver;
+            navAgent.isStopped = true;
+        }
+    }
+
+    private void DeliverUpdate()
+    {
+        //This unit stops when there is no target resource to go back and he has nothing to deliver
+        if (targetStructure == null)
+        {
+            state = UnitState.Idle;
+            return;
+        }
+
+        // Deliver the resource to player
+        Office.instance.Stone += curAmount;
+        curAmount = 0;
+
+        // Go back to mining
+        if (targetMine != null)
+        {
+            StartMining(targetMine);
+        }
+        else
+        {
+            GameObject newMine = FindingTarget.CheckForNearestMine(targetStructure.transform.position,
+                                                                    100f,
+                                                                    "Mine");
+            if (newMine != null)
+                StartMining(newMine);
+            else
+            {
+                targetStructure = null;
+                state = UnitState.Idle;
+                navAgent.isStopped = true;
+            }
+        }
+    }
     #endregion
 }
