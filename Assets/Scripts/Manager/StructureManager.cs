@@ -217,6 +217,15 @@ public class StructureManager : MonoBehaviour
         demolishCursor.SetActive(isDemolishing);
     }
 
+    public void CallWorker() //Call Worker in Warehouse Panel
+    {
+        GameObject mine = FindingTarget.CheckForNearestMine(CurStructure.transform.position,
+                                                                        100f,
+                                                                        "Mine");
+        Office.instance.SendWorkerToMine(mine, CurStructure);
+        MainUI.instance.UpdateResourceUI();
+    }
+
     #region Road
     private void GenGreenTile(Vector3 pos)
     {
