@@ -3033,6 +3033,8 @@ MonoBehaviour:
   laborMarketPanel: {fileID: 562886483}
   farmPanel: {fileID: 1361150975}
   farmNameText: {fileID: 1120199150}
+  warehousePanel: {fileID: 192464058}
+  warehouseNameText: {fileID: 1915720583}
 --- !u!114 &723345191
 MonoBehaviour:
   m_ObjectHideFlags: 0
