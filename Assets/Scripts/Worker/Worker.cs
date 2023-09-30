@@ -33,6 +33,23 @@ public class Worker : Unit
     [SerializeField] private bool hired = false;
     public bool Hired { get { return hired; } set { hired = value; } }
 
+    //Mining
+    [SerializeField] private GameObject targetMine;
+    public GameObject TargetMine { get { return targetMine; } set { targetMine = value; } }
+
+    private int maxAmount = 30;
+
+    [SerializeField] private int curAmount;
+    public int CurAmount { get { return curAmount; } set { curAmount = value; } }
+
+    //Miner State Timer
+    [SerializeField] private float miningTimer = 0f;
+    [SerializeField] private float miningTimeWait = 1f;
+
+    //Miner Dig Timer
+    [SerializeField] private float timeLastDig;
+    [SerializeField] private float digRate = 3f;
+
     public void InitiateCharID(int i)
     {
         charSkinID = i;
@@ -117,4 +134,8 @@ public class Worker : Unit
         DisableAllTools();
         tools[i].SetActive(true);
     }
+
+    #region Resource
+
+    #endregion
 }
