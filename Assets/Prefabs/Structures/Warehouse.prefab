@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 6819207285991476908}
   - component: {fileID: 5324945685874550657}
   - component: {fileID: 4573601485577569634}
+  - component: {fileID: 3792294875254483721}
   m_Layer: 6
   m_Name: Warehouse
   m_TagString: Warehouse
@@ -216,6 +217,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &3792294875254483721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5847359790154282359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634b6ea52bcb23142ae8e8fb498a54c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheel: {fileID: 8492986456671142857}
 --- !u!1001 &7764779027183253789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -338,5 +352,10 @@ PrefabInstance:
 --- !u!4 &8487648374184792965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4959979268377148, guid: 66abb0af2bc68b94f9fe70ed77a59966, type: 3}
+  m_PrefabInstance: {fileID: 8492575213481253305}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8492986456671142857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1853804450421360, guid: 66abb0af2bc68b94f9fe70ed77a59966, type: 3}
   m_PrefabInstance: {fileID: 8492575213481253305}
   m_PrefabAsset: {fileID: 0}
