@@ -184,4 +184,31 @@ public class Office : MonoBehaviour
             unitLimit = 0;
     }
 
+    public void SendWorkerToMine(GameObject mine, GameObject warehouse)
+    {
+        UpdateAvailStaff();
+
+        if (mine == null || availStaff <= 0)
+            return;
+
+        int n = 0; //number of Worker sent
+
+        for (int i = 0; i < workers.Count; i++)
+        {
+            if (workers[i].TargetStructure == null)
+            {
+                Worker w = workers[i].GetComponent<Worker>();
+
+                workers[i].TargetStructure = warehouse;
+                workers[i].TargetMine = mine;
+                w.StartMining(mine);
+                n++;
+            }
+
+            if (n >= 1)
+                break;
+        }
+
+        UpdateAvailStaff();
+    }
 }
