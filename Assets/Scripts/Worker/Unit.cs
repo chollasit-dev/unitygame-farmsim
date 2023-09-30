@@ -16,7 +16,10 @@ public enum UnitState
     AttackUnit,
     MoveToAttackBuilding,
     AttackBuilding,
+    MoveToMining,
     Mining,
+    MoveToDeliver,
+    Deliver,
     Die
 }
 
