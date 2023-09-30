@@ -156,6 +156,14 @@ public class StructureManager : MonoBehaviour
         MainUI.instance.ToggleFarmPanel();
     }
 
+    public void OpenWarehousePanel()
+    {
+        string name = CurStructure.GetComponent<Building>().StructureName;
+
+        MainUI.instance.WarehouseNameText.text = name;
+        MainUI.instance.ToggleWarehousePanel();
+    }
+
     private void CheckOpenPanel()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -327,12 +335,4 @@ public class StructureManager : MonoBehaviour
             ConstructRoad();
     }
     #endregion
-
-    public void OpenWarehousePanel()
-    {
-        string name = CurStructure.GetComponent<Building>().StructureName;
-
-        MainUI.instance.WarehouseNameText.text = name;
-        MainUI.instance.ToggleWarehousePanel();
-    }
 }
