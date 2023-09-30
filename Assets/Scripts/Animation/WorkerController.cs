@@ -29,6 +29,8 @@ public class WorkerController : MonoBehaviour
             case UnitState.Walk:
             case UnitState.MoveToAttackBuilding:
             case UnitState.MoveToAttackUnit:
+            case UnitState.MoveToMining:
+            case UnitState.MoveToDeliver:
                 anim.SetBool("isWalk", true);
                 break;
             case UnitState.Plow:
