@@ -70,7 +70,7 @@ public abstract class Unit : MonoBehaviour
 
     }
 
-    void Update()
+    protected virtual void Update()
     {
         CheckStaffState();
     }

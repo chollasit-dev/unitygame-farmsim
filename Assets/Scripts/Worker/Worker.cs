@@ -50,6 +50,18 @@ public class Worker : Unit
     [SerializeField] private float timeLastDig;
     [SerializeField] private float digRate = 3f;
 
+    protected override void Update()
+    {
+        base.Update();
+
+        miningTimer += Time.deltaTime;
+        if (miningTimer >= miningTimeWait)
+        {
+            miningTimer = 0f;
+            CheckWorkerState();
+        }
+    }
+
     public void InitiateCharID(int i)
     {
         charSkinID = i;
