@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public enum UnitState
 {
@@ -58,9 +59,9 @@ public abstract class Unit : MonoBehaviour
     [SerializeField] protected GameObject targetUnit;
     public GameObject TargetUnit { get { return targetUnit; } set { targetUnit = value; } }
 
+    public UnityEvent<UnitState> onStateChange;
 
-
-    private void Awake()
+    void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
     }
@@ -257,5 +258,13 @@ public abstract class Unit : MonoBehaviour
             targetStructure = t.gameObject;
             state = UnitState.MoveToAttackBuilding;
         }
+    }
+
+    public void SetUnitState(UnitState s)
+    {
+        if (onStateChange != null) //if there is an icon
+            onStateChange.Invoke(s);
+
+        state = s;
     }
 }
