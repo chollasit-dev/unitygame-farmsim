@@ -325,4 +325,11 @@ public class StructureManager : MonoBehaviour
     }
     #endregion
 
+    public void OpenWarehousePanel()
+    {
+        string name = CurStructure.GetComponent<Building>().StructureName;
+
+        MainUI.instance.WarehouseNameText.text = name;
+        MainUI.instance.ToggleWarehousePanel();
+    }
 }
