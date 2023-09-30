@@ -1,4 +1,4 @@
-/*using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -12,13 +12,13 @@ public class TestScript : MonoBehaviour
     {
         Debug.Log("Awake");
     }
-    // Start is called before the first frame update
+    
     void Start()
     {
         Debug.Log("Start");
     }
 
-    
+
     void Update()
     {
         timer += Time.deltaTime;
@@ -31,4 +31,3 @@ public class TestScript : MonoBehaviour
         }
     }
 }
-*/
