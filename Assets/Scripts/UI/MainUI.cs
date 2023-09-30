@@ -69,6 +69,4 @@ public class MainUI : MonoBehaviour
         else
             warehousePanel.SetActive(false);
     }
-
-
 }

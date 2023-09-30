@@ -21,6 +21,9 @@ public class Office : MonoBehaviour
     [SerializeField] private int apple;
     public int Apple { get { return apple; } set { apple = value; } }
 
+    [SerializeField] private int stone;
+    public int Stone { get { return stone; } set { stone = value; } }
+
     [SerializeField] private int dailyCostWages;
 
     [SerializeField] private List<Structure> structures = new List<Structure>();
@@ -41,7 +44,6 @@ public class Office : MonoBehaviour
     [Header("Building")]
     [SerializeField] private int unitLimit = 3; //Initial unit limit
     [SerializeField] private int housingUnitNum = 6; //number of units per each housing
-
 
     private void Awake()
     {
