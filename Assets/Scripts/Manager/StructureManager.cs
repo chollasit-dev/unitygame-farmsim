@@ -175,6 +175,9 @@ public class StructureManager : MonoBehaviour
                 case "Farm": // if we click Object with Farm tag 
                     OpenFarmPanel();
                     break;
+                case "Warehouse": //if we click Object with Warehouse tag
+                    OpenWarehousePanel();
+                    break;
             }
         }
     }
