@@ -25,7 +25,7 @@ public class Enemy : Unit
 
         Structure s = other.gameObject.GetComponent<Structure>();
         if ((s != null) && (s.HP > 0))
-            state = UnitState.AttackBuilding;
+            SetUnitState(UnitState.AttackBuilding);
     }
 
     private void CheckForAttack()
@@ -36,24 +36,24 @@ public class Enemy : Unit
         if (enemyBuilding != null)
         {
             targetStructure = enemyBuilding.gameObject;
-            state = UnitState.MoveToAttackBuilding;
+            SetUnitState(UnitState.MoveToAttackBuilding);
         }
         //No building to attack
         else
         {
             targetStructure = null;
-            state = UnitState.Idle;
+            SetUnitState(UnitState.Idle);
 
             if (enemyUnit != null)
             {
                 targetUnit = enemyUnit.gameObject;
-                state = UnitState.MoveToAttackUnit;
+                SetUnitState(UnitState.MoveToAttackUnit);
             }
             //No unit to attack
             else
             {
                 targetUnit = null;
-                state = UnitState.Idle;
+                SetUnitState(UnitState.Idle);
             }
         }
     }
