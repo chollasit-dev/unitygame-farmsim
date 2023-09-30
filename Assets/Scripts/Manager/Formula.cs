@@ -15,7 +15,6 @@ public class Formula : MonoBehaviour
         instance = this;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;

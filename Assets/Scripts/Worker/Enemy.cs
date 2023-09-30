@@ -10,7 +10,6 @@ public class Enemy : Unit
 
     [SerializeField] float checkForEnemyRate = 1f;
 
-    // Start is called before the first frame update
     void Start()
     {
         buildingLayerMask = LayerMask.GetMask("Building");

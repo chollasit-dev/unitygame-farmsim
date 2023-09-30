@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Road : Structure
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-    
     void Update()
     {
-        
+
     }
 }

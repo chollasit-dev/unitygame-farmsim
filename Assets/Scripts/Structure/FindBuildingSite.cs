@@ -17,7 +17,6 @@ public class FindBuildingSite : MonoBehaviour
         pRenderer = plane.GetComponent<Renderer>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         pRenderer.material.color = Color.green;

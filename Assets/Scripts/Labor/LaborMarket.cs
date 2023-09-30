@@ -6,7 +6,7 @@ public class LaborMarket : MonoBehaviour
 {
     [SerializeField] private GameObject workerPrefab;
     [SerializeField] private GameObject workerParent;
-    public GameObject WorkerParent { get {  return workerParent; } }
+    public GameObject WorkerParent { get { return workerParent; } }
 
     [SerializeField] private GameObject staffCardPrefab;
     [SerializeField] private GameObject staffCardParent;
@@ -31,7 +31,6 @@ public class LaborMarket : MonoBehaviour
 
     public static LaborMarket instance;
 
-    // Start is called before the first frame update
     void Start()
     {
         instance = this;
