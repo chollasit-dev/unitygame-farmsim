@@ -98,21 +98,14 @@ public class Worker : Unit
             return;
         }
 
-        Farm farm = other.gameObject.GetComponent<Farm>();
-
-        if ((other.tag == "Farm") && (farm != null) && farm.HP < 100)
-        {
-            switch (farm.Stage) { }
-        }
-
         Mines mine = other.gameObject.GetComponent<Mines>();
-
-        if ((other.tag == "Mine") && (mine != null) && (mine.HP < 100))
+        if ((other.tag == "Farm") && (other.tag == "Mine") && (mine != null) && (mine.HP < 100))
         {
             LookAt(targetMine.transform.position);
             state = UnitState.Mining;
         }
 
+        Farm farm = other.gameObject.GetComponent<Farm>();
         if ((farm != null) && (farm.HP < 100))
         {
             switch (farm.Stage)
