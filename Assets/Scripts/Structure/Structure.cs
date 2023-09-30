@@ -36,6 +36,9 @@ public abstract class Structure : MonoBehaviour
     [SerializeField] protected bool isHousing;
     public bool IsHousing { get { return isHousing; } set { isHousing = value; } }
 
+    [SerializeField] protected bool isWarehouse;
+    public bool IsWarehouse { get { return isWarehouse; } set { isWarehouse = value; } }
+
     void Start()
     {
         functional = false;
