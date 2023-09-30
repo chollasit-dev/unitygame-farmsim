@@ -255,5 +255,4 @@ public abstract class Unit : MonoBehaviour
             state = UnitState.MoveToAttackBuilding;
         }
     }
-
 }
