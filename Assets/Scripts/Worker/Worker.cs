@@ -181,7 +181,9 @@ public class Worker : Unit
         }
 
         DisableAllTools();
+
         //Equip PickAxe
+        EquipTool(3);
 
         if (Vector3.Distance(transform.position, navAgent.destination) <= 1f)
         {
@@ -206,7 +208,9 @@ public class Worker : Unit
         }
 
         DisableAllTools();
+
         //Equip PickAxe
+        EquipTool(3);
 
         if (Time.time - timeLastDig > digRate)
         {
@@ -280,7 +284,6 @@ public class Worker : Unit
             }
         }
     }
-    #endregion
 
     private void CheckWorkerState()
     {
@@ -300,6 +303,5 @@ public class Worker : Unit
                 break;
         }
     }
-
-
+    #endregion
 }
