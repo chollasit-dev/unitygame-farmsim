@@ -82,6 +82,9 @@ MonoBehaviour:
   tools: []
   weapon: {fileID: 4722893109295324393}
   targetUnit: {fileID: 0}
+  onStateChange:
+    m_PersistentCalls:
+      m_Calls: []
   buildingLayerMask:
     serializedVersion: 2
     m_Bits: 0
